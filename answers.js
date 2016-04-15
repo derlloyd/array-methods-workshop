@@ -100,7 +100,7 @@ with a property highest containing the highest number,
 and a property lowest containing the lowest number
 */
 
-var array6 = [1, -10, 20, 40, 5];
+var array6 = [1, -10, 20, 40, -5];
 
 function highLowSub(acc, curr) {
     if (curr > acc.highest) {
@@ -109,12 +109,50 @@ function highLowSub(acc, curr) {
     else if (curr < acc.lowest){
         acc.lowest = curr;
     }
-        return acc;
-    }
+    return acc;
+}
 
 function highLow(myArray) {
     return myArray.reduce(highLowSub, 
     {highest:-Infinity, lowest:Infinity});
 }
 
-console.log(highLow(array6))
+// console.log(highLow(array6))
+
+/* Exercise 7
+highLowTwo that takes an array of numbers, 
+and returns the higest, second highest, 
+lowest, and second lowest numbers.
+*/
+
+var array7 = [1, -10, 20, 40, -5];
+
+function highLowTwoSub(acc, curr) {
+    if (curr > acc.highest) {
+        acc.secondHighest = acc.highest;
+        acc.highest = curr;
+    }
+    else if (curr < acc.lowest) {
+        acc.secondLowest = acc.lowest;
+        acc.lowest = curr;
+    }
+    else if (curr > acc.secondHighest) {
+        acc.secondHighest = curr;
+    }
+    else if (curr < acc.secondLowest) {
+        acc.secondLowest = curr;
+    }
+    return acc;
+}
+
+function highLowTwo(myArray) {
+    return myArray.reduce(highLowTwoSub, 
+    {highest:-Infinity,
+    secondHighest:-Infinity-1,
+    secondLowest:Infinity+1,
+    lowest:Infinity
+    });
+}
+
+console.log(highLowTwo(array7))
+
