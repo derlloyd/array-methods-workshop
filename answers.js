@@ -68,5 +68,28 @@ function longestWord(string) {
     return string.split(" ").reduce(maxWordLength);
 }
 
-var sentence = "These are some looooooooooooooong words";
-console.log(longestWord(sentence));
+var sentence4 = "These are some looooooooooooooong words";
+// console.log(longestWord(sentence4));
+
+/* Exercise 5
+countVowels that takes a string 
+and returns the number of vowels in the string
+*/
+
+var sentence5 = "a e e e i i o aaaaaasstv";
+
+function countVowels(string){
+    
+    var arraySub = string.split("");
+
+    return arraySub.reduce(function(count, currentLetter) {
+        if (["a", "e", "i", "o" ,"u"].indexOf(currentLetter) !== -1) {
+            return count + 1;
+        }
+        return count;
+    }
+    ,0);
+}
+
+console.log(countVowels(sentence5));
+
