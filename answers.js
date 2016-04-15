@@ -91,5 +91,30 @@ function countVowels(string){
     ,0);
 }
 
-console.log(countVowels(sentence5));
+// console.log(countVowels(sentence5));
 
+/* Exercise 6
+highLow that takes an array of numbers, 
+and returns an object 
+with a property highest containing the highest number, 
+and a property lowest containing the lowest number
+*/
+
+var array6 = [1, -10, 20, 40, 5];
+
+function highLowSub(acc, curr) {
+    if (curr > acc.highest) {
+        acc.highest = curr;
+    }
+    else if (curr < acc.lowest){
+        acc.lowest = curr;
+    }
+        return acc;
+    }
+
+function highLow(myArray) {
+    return myArray.reduce(highLowSub, 
+    {highest:-Infinity, lowest:Infinity});
+}
+
+console.log(highLow(array6))
