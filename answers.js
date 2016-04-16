@@ -154,5 +154,59 @@ function highLowTwo(myArray) {
     });
 }
 
-console.log(highLowTwo(array7))
+// console.log(highLowTwo(array7))
 
+/* Exercise 8
+countChars that takes a string, 
+and returns an object where the keys are letters, 
+and the value is the number of times that letter appears.
+*/
+
+
+
+function countChars(string) {
+    var stringArray = string.split("").filter(function(x) {
+        if (x !== " ") {
+            return x;
+        }
+    });
+
+    return stringArray.reduce(function(acc, curr) {
+
+        if (!acc[curr]) {
+            acc[curr] = 1;
+        }
+        else {
+            acc[curr] += 1;
+        }
+        return acc;
+    }, {});
+}
+
+console.log(countChars("hello worldjjjjjjjjjjj"));
+
+
+
+
+
+
+
+
+
+
+/*
+function countCharsSub(acc, curr) {
+    console.log(acc);
+    console.log(curr);
+    acc.curr = "OK";
+    //acc.curr = 1;
+    //acc.prop2 = 2;
+    return acc;
+}
+
+function countChars(string) {
+    return string.split("").reduce(countCharsSub,{});
+}
+
+console.log(countChars("hello world"));
+*/
