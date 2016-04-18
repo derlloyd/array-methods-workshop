@@ -183,30 +183,54 @@ function countChars(string) {
     }, {});
 }
 
-console.log(countChars("hello worldjjjjjjjjjjj"));
+// console.log(countChars("hello worldjjjjjjjjjjj"));
 
+/* Exercise 10
+*/
 
-
-
-
-
-
-
-
+var people = [
+  {
+    "id": "KeXoYg92is",
+    "firstName": "John",
+    "lastName": "Smith",
+    "email": "john@smith.com"
+  },
+  {
+    "id": "NkALmSWtUp",
+    "firstName": "Donald",
+    "lastName": "Duck",
+    "email": "don@disney.com"
+  },
+  {
+    "id": "m7LPbJYSUg",
+    "firstName": "John",
+    "lastName": "Vader",
+    "email": "vader@darkside.com"
+  }
+]
 
 /*
-function countCharsSub(acc, curr) {
-    console.log(acc);
-    console.log(curr);
-    acc.curr = "OK";
-    //acc.curr = 1;
-    //acc.prop2 = 2;
-    return acc;
-}
+var index  = {};
 
-function countChars(string) {
-    return string.split("").reduce(countCharsSub,{});
-}
-
-console.log(countChars("hello world"));
+var person = {
+    "id": "KeXoYg92is",
+    "firstName": "John",
+    "lastName": "Smith",
+    "email": "john@smith.com"
+  };
+  
+if (!index[person.firstName]) {
+    index[person.firstName] = [];  // if theres no index add one
+}  
+    index[person.firstname].push(person)  // otherwise push them to existing array
 */
+
+var index2 = people.reduce(function(index, person) {
+    if (!index[person.firstName]) {
+    index[person.firstName] = [];  // if theres no index add one
+}  
+    index[person.firstName].push(person);  // otherwise push them to existing array
+    return index;
+}, {});
+
+console.log(index2);
